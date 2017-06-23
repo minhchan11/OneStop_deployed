@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OneStopMinh.ViewModels.LoginViewModel
+
+@if (ViewData["error"] != null)
+{
+    <p class="wrong">@ViewData["error"]</p>
+    <hr />
+}
+
+<div class="panel panel-info">
+    <div class="panel-heading">Log In</div>
+    <div class="panel-body">
+        <div class="form-group">
+            @using (Html.BeginForm())
+            {
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                <label>Password</label>
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password" })
+                <br />
+                <input type="submit" value="Log In" class="btn btn-success" />
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1 class="jumbotron">Plan a trip</h1>
+    <nav class="navbar navbar-light">
+
+    </nav>
+    <form id="customer" class="form-group">
+        <div class="panel panel-success">
+            <div class="panel-heading">Trip Planner</div>
+            <div class="panel-body">
+
+                <label for="destination">Destination:</label>
+                <input id="destination" class="form-control" type="text" name="destination">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label class="col-2 col-form-label">Depart:</label>
+                        <div class="col-4">
+                            <input id="depart-date" class="form-control" type="date" name="depart-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-date" class="col-2 col-form-label">Return:</label>
+                        <div class="col-4">
+                            <input id="return-date" class="form-control" type="date" name="return-date">
+                        </div>
+                    </div>
+                </div>
+
+                <label for="party-size">Number of pax</label>
+                <input id="party-size" class="form-control" type="number" name="party-size">
+                <label for="budget">Budget</label>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" class="form-control" id="budget">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Travel!</button>
+    </form>
+
+
+    <hr>
+    <div id="hide" class="hidden">
+
+        <div class="well">
+            <h6>USD value compared to local currency <span id="currency"></span>:<span id="rate"></span></h6>
+            <h6>Your total budget in local currency is: <span id="convert"></span></h6>
+        </div>
+        <div class="row panel-group" id="weather"></div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <span class="details" id="info"></span>
+            </div>
+            <div class="col-sm-3">
+                <h3>Places to see:</h3>
+                <div id="attractions"><ul class="details"></ul></div>  
+            </div>
+            <div class="col-sm-3">
+                <span id="info-picture"></span>
+            </div>
+        </div>
+
+        <span id="error"></span>
+        <span id="location"></span>
+        <hr>
+        <div class="">
+
+        </div>
+        <div class="row">
+
+            <div class="row">
+                <h3>Places to eat:</h3>
+                <span class="details" id="restaurant"></span>
+            </div>
+            <div class="row">
+                <h3>Places to stay:</h3>
+                <span class="details" id="hotel"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Delete your profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OneStopMinh.Models.Tourist
+
+<h5>Confirm deletion for @Model.Name</h5>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TouristId)
+    <input type="submit" class="btn btn-danger" value="Delete">
+}

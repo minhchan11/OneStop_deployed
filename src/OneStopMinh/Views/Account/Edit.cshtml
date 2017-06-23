@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Edit " + @Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OneStopMinh.Models.Tourist
+
+<div class="panel panel-success">
+    <div class="panel-heading">Edit your details</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(model => model.TouristId)
+            <div class="form-group">
+                <label>Name:</label>
+                <h4> @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })</h4>
+
+                <label>New Profile Pic:</label>
+                <input type="file" id="avatar" name="avatar" />
+                <input type="submit" class="btn btn-success" value="Save Edit">
+            </div>
+        }
+    </div>
+</div>

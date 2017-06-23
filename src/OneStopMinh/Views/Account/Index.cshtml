@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Account Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model OneStopMinh.Models.Tourist
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="panel panel-success">
+        <div class="panel-heading">User Tools for @User.Identity.Name</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Logoff", "Account"))
+            {
+                <input type="submit" class="btn btn-primary" value="Log off" />
+            }
+            @if (Model == null)
+            {
+                <button class="btn btn-info">@Html.ActionLink("Complete your profile", "Create")</button>
+            }
+            else
+            {
+                <h5>Name: @Model.Name</h5>
+                var bytes = Model.Pic;
+                var base64 = Convert.ToBase64String(bytes);
+                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src="@imgsrc" class="profilePic"/>
+                @foreach(var item in Model.Attractions)
+                {
+                    <h6>@item.Name</h6>
+                }
+                <button class="btn btn-info">@Html.ActionLink("Edit your profile", "Edit", new { id = Model.TouristId } )</button>
+                <button class="btn btn-warning">@Html.ActionLink("Delete your profile", "Delete", new { id = Model.TouristId })</button>
+            }
+        </div>
+    </div>
+}
+else
+{
+<a class="btn btn-info" href="account/register">Register</a>
+<a class="btn btn-success" href="account/login">Log In</a>
+}

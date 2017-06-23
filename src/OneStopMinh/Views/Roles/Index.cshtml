@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole>
+@{
+    ViewBag.Title = "Roles Listing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @foreach (var role in Model)
+    {
+        <p>
+            <strong>@role.Name | </strong>
+            <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { roleName = @role.Name })</button>
+            <button class="btn btn-info">@Html.ActionLink("Edit", "Edit", new { roleId = @role.Id })</button>
+        </p>
+    }
+</div>
+
+@Html.ActionLink("Create Roles", "Create")
+@Html.ActionLink("Assign User Role", "Assign")

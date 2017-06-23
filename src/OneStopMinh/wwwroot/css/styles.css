@@ -1,0 +1,33 @@
+﻿﻿@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.newHotel {
+  margin: 10px;
+  text-align: center;
+}
+
+.newRes {
+  margin: 10px;
+  text-align: center;
+}
+
+.pics {
+  border-radius: 50%;
+  height:50%;
+  width:50%;
+}
+
+.wrong {
+    color: red; 
+}
+
+.profilePic {
+    height:200px;
+    width: 200px;
+    border-radius: 50%;
+    border:double;
+    border-color:black;
+}

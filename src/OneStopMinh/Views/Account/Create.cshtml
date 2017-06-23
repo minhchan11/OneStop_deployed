@@ -1,0 +1,15 @@
+﻿@using System.Security.Claims
+@model OneStopMinh.Models.Tourist
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>Create your wanderer profile</h4>
+        @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <label>Your full name: </label>
+            @Html.TextBoxFor(model => model.Name)
+
+            <input type="file" id="avatar" name="avatar" />
+            <input type="submit" value="Register" />
+        }
+}
